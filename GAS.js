@@ -275,7 +275,7 @@ function exportSingleSheetToJSON() {
   const fileName = sheet.getName() + "_export.json";
 
   // --- GITHUB CONFIGURATION ---
-  const GITHUB_TOKEN = "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"; // Replace with your GitHub Fine-grained Token or PAT
+  const GITHUB_TOKEN = "token"; // Replace with your GitHub Fine-grained Token or PAT
   const OWNER = "amcreations319";
   const REPO = "KeralaLotteryAnalyserData";
   const BRANCH = "main";
