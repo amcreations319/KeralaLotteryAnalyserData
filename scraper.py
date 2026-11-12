@@ -2,6 +2,10 @@ import os
 import base64
 import requests
 import sys
+import urllib3
+
+# Disable insecure request warnings for expired SSL certificate
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def main():
     # Get the URL sent from the GitHub workflow trigger
@@ -14,8 +18,8 @@ def main():
 
     print(f"Fetching lottery from URL: {url}...")
     
-    # Python downloads the PDF smoothly without SSL errors
-    response = requests.get(url, timeout=30)
+    # Bypass expired SSL certificate using verify=False
+    response = requests.get(url, timeout=30, verify=False)
     
     if response.status_code != 200 or len(response.content) < 1000:
         print(f"Results not yet published for {url}.")
